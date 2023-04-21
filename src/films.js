@@ -41,8 +41,40 @@ function orderAlphabetically(array) {
 }
 
 // Exercise 5: Order by year, ascending
-function orderByYear() {
+function orderByYear(array) {
+  let moviesArr = array.map(movie => movie);
 
+  moviesArr.sort(function (x, y) {
+    /* if (x.year < y.year) {
+        return -1;
+    }
+ 
+    if (x.year > y.year) {
+        return 1;
+    }
+    if (x.title < y.title) {
+      return -1;
+    }
+
+    if (x.title > y.title) {
+        return 1;
+    } */
+    let difYear = x.year - y.year
+    if(difYear === 0){
+      if (x.title < y.title) {
+        return -1;
+      }
+  
+      if (x.title > y.title) {
+          return 1;
+      }
+    }
+    return difYear
+    /* return 0; */
+});
+  
+  console.log(moviesArr)
+  return moviesArr
 }
 
 // Exercise 6: Calculate the average of the movies in a category
