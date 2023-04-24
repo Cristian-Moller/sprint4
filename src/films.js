@@ -75,22 +75,32 @@ function moviesAverageByCategory(array, genre) {
   let averageScore = averageScoreF(result)
   let totalElem = result.length
   
-  
   let index = result.find(elem => elem.score == '')
   
   if(index != undefined){
     totalElem--
     result.splice(index, 1)
   }
-  console.log('rdo--', totalElem)
   
-  console.log(Number((averageScore/totalElem).toFixed(2)))
   return Number((averageScore/totalElem).toFixed(2))
 }
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
+function hoursToMinutes(array) {
+  let result = array.map((movie) => {
+    let newMovie = {...movie}
 
+    let minutes = newMovie.duration.split('h')
+
+    let num1 = minutes[0]
+    let num2 = minutes[1]
+    num2 = num2.split('m')
+    
+    newMovie.duration = (Math.floor(num1)*60) + (Math.floor(num2[0]))
+    
+    return newMovie
+  });
+  return result
 }
 
 // Exercise 8: Get the best film of a year
